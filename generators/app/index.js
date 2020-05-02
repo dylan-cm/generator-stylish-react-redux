@@ -191,17 +191,31 @@ module.exports = class extends Generator {
     this.log();
 
     this.log(
-      [
-        chalk.red("Happy"),
-        chalk.magenta("Hacking"),
-        chalk.yellow("Y'all"),
-        chalk.green("-"),
-        chalk.cyan("Yeehaw"),
-        chalk.blue("!"),
-        "\u{1F920}"
-      ].join(" ")
+      chalk.magenta(
+        `.▄▄ · ▄▄▄ .▄▄▄ .     ▄· ▄▌      ▄• ▄▌    .▄▄ ·  ▄▄▄· ▄▄▄·  ▄▄· ▄▄▄ .     ▄▄·       ▄▄▌ ▐ ▄▌▄▄▄▄·        ▄· ▄▌        \u{1F920}`
+      )
+    );
+    this.log(
+      chalk.yellow(
+        `▐█ ▀. ▀▄.▀·▀▄.▀·    ▐█▪██▌▪     █▪██▌    ▐█ ▀. ▐█ ▄█▐█ ▀█ ▐█ ▌▪▀▄.▀·    ▐█ ▌▪▪     ██· █▌▐█▐█ ▀█▪▪     ▐█▪██▌         `
+      )
+    );
+    this.log(
+      chalk.green(
+        `▄▀▀▀█▄▐▀▀▪▄▐▀▀▪▄    ▐█▌▐█▪ ▄█▀▄ █▌▐█▌    ▄▀▀▀█▄ ██▀·▄█▀▀█ ██ ▄▄▐▀▀▪▄    ██ ▄▄ ▄█▀▄ ██▪▐█▐▐▌▐█▀▀█▄ ▄█▀▄ ▐█▌▐█▪         `
+      )
+    );
+    this.log(
+      chalk.cyanBright(
+        `▐█▄▪▐█▐█▄▄▌▐█▄▄▌     ▐█▀·.▐█▌.▐▌▐█▄█▌    ▐█▄▪▐█▐█▪·•▐█ ▪▐▌▐███▌▐█▄▄▌    ▐███▌▐█▌.▐▌▐█▌██▐█▌██▄▪▐█▐█▌.▐▌ ▐█▀·.         `
+      )
+    );
+    this.log(
+      chalk.bgBlue(
+        ` ▀▀▀▀  ▀▀▀  ▀▀▀       ▀ •  ▀█▄▀▪ ▀▀▀      ▀▀▀▀ .▀    ▀  ▀ ·▀▀▀  ▀▀▀     ·▀▀▀  ▀█▄▀▪ ▀▀▀▀ ▀▪·▀▀▀▀  ▀█▄▀▪  ▀ •  ▀  ▀  ▀ `
+      )
     );
 
-    this.log();
+    this.log("");
   }
 };
