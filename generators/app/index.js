@@ -58,14 +58,14 @@ module.exports = class extends Generator {
       this.templatePath("public/index.html"),
       this.destinationPath("public/index.html"),
       {
-        projectName: to.title(this.projectName)
+        projectName: to.title(this.props.projectName)
       }
     );
     this.fs.copyTpl(
       this.templatePath("public/manifest.json"),
       this.destinationPath("public/manifest.json"),
       {
-        projectName: to.title(this.projectName)
+        projectName: to.title(this.props.projectName)
       }
     );
     this.fs.copy(
@@ -90,7 +90,7 @@ module.exports = class extends Generator {
       this.templatePath("README.md"),
       this.destinationPath("README.md"),
       {
-        projectName: to.title(this.projectName)
+        projectName: to.title(this.props.projectName)
       }
     );
 
