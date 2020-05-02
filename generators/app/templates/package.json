@@ -1,6 +1,8 @@
 {
-  "name": "tut4",
-  "version": "0.1.0",
+  "name": "<%= projectName %>",
+  "description": "<%= projectDescription %>",
+  "version": "<%= projectVersion %>",
+  "author": "<%= authorName %>",
   "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.28",

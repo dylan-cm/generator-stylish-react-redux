@@ -19,7 +19,7 @@ module.exports = class extends Generator {
         name: "projectName",
         type: "input",
         message: "Project name:",
-        default: path.basename(this.destinationPath())
+        default: path.basename(process.cwd())
       },
       {
         name: "projectDescription",
@@ -52,14 +52,14 @@ module.exports = class extends Generator {
       this.templatePath("public/index.html"),
       this.destinationPath("public/index.html"),
       {
-        projectName: to.title(this.props.projectName)
+        projectName: to.slug(this.props.projectName)
       }
     );
     this.fs.copyTpl(
       this.templatePath("public/manifest.json"),
       this.destinationPath("public/manifest.json"),
       {
-        projectName: to.title(this.props.projectName)
+        projectName: to.slug(this.props.projectName)
       }
     );
     this.fs.copy(
@@ -84,7 +84,19 @@ module.exports = class extends Generator {
       this.templatePath("README.md"),
       this.destinationPath("README.md"),
       {
-        projectName: to.title(this.props.projectName)
+        projectName: to.slug(this.props.projectName)
+      }
+    );
+
+    // package.json
+    this.fs.copyTpl(
+      this.templatePath("package.json"),
+      this.destinationPath("package.json"),
+      {
+        projectName: to.slug(this.props.projectName),
+        projectDescription: this.props.projectDescription,
+        projectVersion: this.props.projectVersion,
+        authorName: this.props.authorName
       }
     );
 
