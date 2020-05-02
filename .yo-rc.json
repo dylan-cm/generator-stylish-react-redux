@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Dylan Cortez-Modell",
+      "authorEmail": "dylan@cortez-modell.com",
+      "authorUrl": "cortez-modell.com"
+    }
+  }
+}
