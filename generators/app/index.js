@@ -126,7 +126,7 @@ module.exports = class extends Generator {
     this.installDependencies({
       npm: true,
       bower: false,
-      yarn: true
+      yarn: false
     });
     const deps = [
       "@emotion/core@^10.0.28",
@@ -154,6 +154,11 @@ module.exports = class extends Generator {
       "typescript@~3.7.2"
     ];
     this.spawnCommandSync("git", ["init", "--quiet"]);
+    this.spawnCommandSync("git", ["add", "-A"]);
+    this.spawnCommandSync("git", [
+      "commit",
+      '-m ":tada: Initialized project with generate-stylish-react-redux"'
+    ]);
     this.npmInstall(deps, {
       save: true
     });
