@@ -1,14 +1,9 @@
 "use strict";
 const path = require("path");
+const to = require("to-case");
 const Generator = require("yeoman-generator");
 const chalk = require("chalk");
 const yosay = require("yosay");
-
-function makeGeneratorName(name) {
-  name = _.kebabCase(name);
-  name = name.indexOf("generator-") === 0 ? name : "generator-" + name;
-  return name;
-}
 
 module.exports = class extends Generator {
   initializing() {
@@ -23,9 +18,8 @@ module.exports = class extends Generator {
       {
         name: "projectName",
         type: "input",
-        message: "Your generator name",
-        default: makeGeneratorName(path.basename(process.cwd())),
-        filter: makeGeneratorName
+        message: "Project name:",
+        default: path.basename(this.destinationPath())
       },
       {
         name: "projectDescription",
@@ -167,11 +161,7 @@ module.exports = class extends Generator {
 
   _welcome() {
     this.log(
-      yosay(
-        `Welcome to the ${chalk.pink("stylish")} ${chalk.white(
-          "react"
-        )} ${chalk.cyan("redux")} generator!`
-      )
+      yosay(`Welcome to the ${chalk.magenta("stylish")} react-redux generator!`)
     );
 
     this.log(
@@ -186,5 +176,6 @@ module.exports = class extends Generator {
     );
 
     this.log("Happy Hacking Y'all - Yeehaw! \u{1F920}");
+    this.log();
   }
 };
