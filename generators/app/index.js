@@ -126,7 +126,7 @@ module.exports = class extends Generator {
     this.installDependencies({
       npm: true,
       bower: false,
-      yarn: false
+      yarn: true
     });
     const deps = [
       "@emotion/core@^10.0.28",
@@ -154,14 +154,19 @@ module.exports = class extends Generator {
       "typescript@~3.7.2"
     ];
     this.spawnCommandSync("git", ["init", "--quiet"]);
+    this.npmInstall(deps, {
+      save: true
+    });
+  }
+
+  end() {
     this.spawnCommandSync("git", ["add", "-A"]);
     this.spawnCommandSync("git", [
       "commit",
       '-m ":tada: Initialized project with generate-stylish-react-redux"'
     ]);
-    this.npmInstall(deps, {
-      save: true
-    });
+    this._adios();
+    this.spawnCommandSync("code", ["."]);
   }
 
   _welcome() {
@@ -180,7 +185,23 @@ module.exports = class extends Generator {
       ].join(" ~ ")
     );
 
-    this.log("Happy Hacking Y'all - Yeehaw! \u{1F920}");
+    this.log();
+  }
+  _adios() {
+    this.log();
+
+    this.log(
+      [
+        chalk.red("Happy"),
+        chalk.magenta("Hacking"),
+        chalk.yellow("Y'all"),
+        chalk.green("-"),
+        chalk.cyan("Yeehaw"),
+        chalk.blue("!"),
+        "\u{1F920}"
+      ].join(" ")
+    );
+
     this.log();
   }
 };
